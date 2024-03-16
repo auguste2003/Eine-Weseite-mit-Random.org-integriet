@@ -1,0 +1,1103 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+  
+    <script src="data/assets/js/color-modes.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    
+    <meta name="generator" content="Hugo 0.118.2">
+    <title>Random.org</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/carousel/">
+
+   
+
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3"> 
+
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- In der head-Sektion -->
+
+
+    <style>
+
+
+ /* Füge benutzerdefinierte Styles für das Carousel-Logo hinzu */
+
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+    /* In der CSS-Datei */
+.footer-links a {
+    margin-right: 10px; /* Füge Abstand zwischen den Links hinzu */
+    color: #555; /* Ändere die Linkfarbe nach Bedarf */
+    text-decoration: none; /* Entferne die Standardunterstreichung */
+}
+
+.footer-links a:hover {
+    color: #007bff; /* Ändere die Linkfarbe bei Hover-Effekt */
+}
+
+
+     
+
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="carousel.css" rel="stylesheet">
+  </head>
+  <body>
+   
+
+    
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"/>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"/>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+      </symbol>
+    </svg>
+
+    <div class="dropdown position-fixed bottom-0 end-0 mb-3 me-3 bd-mode-toggle">
+      <button class="btn btn-bd-primary py-2 dropdown-toggle d-flex align-items-center"
+              id="bd-theme"
+              type="button"
+              aria-expanded="false"
+              data-bs-toggle="dropdown"
+              aria-label="Toggle theme (auto)">
+        <svg class="bi my-1 theme-icon-active" width="1em" height="1em"><use href="#circle-half"></use></svg>
+        <span class="visually-hidden" id="bd-theme-text">Toggle theme</span>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="bd-theme-text">
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#sun-fill"></use></svg>
+            Light
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark" aria-pressed="false">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#moon-stars-fill"></use></svg>
+            Dark
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+        <li>
+          <button type="button" class="dropdown-item d-flex align-items-center active" data-bs-theme-value="auto" aria-pressed="true">
+            <svg class="bi me-2 opacity-50 theme-icon" width="1em" height="1em"><use href="#circle-half"></use></svg>
+            Auto
+            <svg class="bi ms-auto d-none" width="1em" height="1em"><use href="#check2"></use></svg>
+          </button>
+        </li>
+      </ul>
+    </div>
+    
+    <header data-bs-theme="dark">
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">The Magic of Random.org</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#overview">Overview</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#overview3">Lotto Quick Pick</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#overview4">Flip Coin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#overview5">Play</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#modal">Impressum</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+    
+ 
+<main>
+  <div id="myCarousel" class="carousel slide mb-6" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner bg-dark" >
+        <div class="carousel-item active mt-2">
+          <img src="bild4.jpeg" class="d-block mx-auto " alt="Platzhalterbild 1" width="70%" height="100%">
+            <div class="container">
+              
+                <div class="carousel-caption text-start">
+                 
+                    <h1>Explore Some Random Games</h1>
+                    <p><a class="btn btn-lg btn-primary" href="#overview5">Sign Up</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="bild11.png" class="d-block mx-auto " alt="Platzhalterbild 1" width="70%" height="100%">
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>An Overview of the Services Offered</h1>
+                    <p><a class="btn btn-lg btn-primary" href="#overview1">Discover</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img src="bild22.jpeg" class="d-block  mx-auto " alt="Platzhalterbild 1" width="70%" height="100%">
+            <div class="container">
+                <div class="carousel-caption text-end">
+                    <h1>Experience the Fun of Trying Out These Games</h1>
+                    <p><a class="btn btn-lg btn-primary" href="#overview2">Discover</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev" >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next" >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing" id="overview">
+
+
+    <div id="cookieBanner" class="cookie-banner bg-secondary text-light">
+      <p>We use cookies to provide you with the best possible experience on our website. By using
+          our website, you agree to the use of cookies.</p>
+      <button onclick="acceptCookies()">Accept</button>
+      <button onclick="window.location.href=' public/index.html' ">Deny</button>
+  </div>
+
+    <!-- Three columns of text below the carousel -->
+    <div class="row">
+      <div class="col-lg-4">
+        <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg> -->
+       
+        <img src="bild5.jpeg"   class="d-block w-100 carousel-image rounded-circle"   width="140" height="300" alt="Platzhalterbild 1">
+        <h2 class="fw-normal">All Games</h2>
+      <p>Flip coin, Keno, and Lotto Quick Pick are mainly offered. What are these games?</p>
+      <p><a class="btn btn-secondary" href="#overview2">Details ansehen &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <!-- <svg class="bd-placeholder-img rounded-circle"  xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg> -->
+        <img src="LottoQuickPick.jpeg"   class="d-block w-100 carousel-image rounded-circle" width="140" height="300" alt="Platzhalterbild 1">
+        <h2 class="fw-normal">Lotto Quick Pick </h2>
+        <p>Since people tend to choose patterns or birthdays as lottery numbers, using Quick Pick can ensure that the numbers are truly random, avoiding patterns in the selected numbers.</p>
+      <p><a class="btn btn-secondary" href="#overview3">View Details &raquo;</a></p>
+    </div><!-- /.col-lg-4 -->
+
+
+
+
+      <div class="col-lg-4">
+        <!-- <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-color)"/></svg> -->
+        <img src="flippcoin.jpeg"   class="d-block w-100 carousel-image rounded-circle"  width="140" height="300" alt="Platzhalterbild 1">
+          <h2 class="fw-normal">Flip Coin</h2>
+        <p>The term "flipping" refers to tossing a coin into the air and observing the result, whether it lands on heads or tails.</p>
+        <p><a class="btn btn-secondary" href="#overview4">View Details &raquo;</a></p>
+      
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7" id="overview2">
+        <h2 class="featurette-heading fw-normal lh-1">The Wide Range of Offerings<span class="text-body-secondary"> Will Fascinate You</span></h2>
+      <p class="lead">Coin Flip: In a coin toss, there are two possible outcomes: heads or tails. The player selects either heads or tails, and then a coin is tossed.
+        <hr> Keno: Keno is a type of lottery game where players try to match the selected numbers with the drawn numbers. The player selects a specific number of numbers from a predefined pool of numbers. Then, random numbers are drawn.
+        <hr> Lotto Quick Pick: Similar to Keno, the goal is to predict the drawn numbers. However, unlike Keno, the numbers are often selected from a smaller pool. The player can either choose their own numbers or use the "Quick Pick" option, where the system automatically generates a random combination of numbers. Then, the draw takes place, and winnings are awarded based on matches.
+     </p>
+        
+      </div>
+      <div class="col-md-5">
+        <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg> -->
+        <img src="bild222.jpeg"   class="d-block w-100 carousel-image " width="500" height="500"  alt="Platzhalterbild 1">
+      </div>
+    </div>
+
+    <hr class="featurette-divider" >
+
+    <div class="row featurette" id="overview3">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">Lotto Quick Pick. <span class="text-body-secondary">: Take a Look!</span></h2>
+      <p class="lead">Using Quick Pick is intended to ensure that every player has an equal chance, regardless of the selected numbers. Players who don't have specific numbers in mind or simply have no preferences often use the Quick Pick feature for convenience.
+     
+        </p>
+      </div>
+      <div class="col-md-5 order-md-1">
+      <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg> -->
+      <img src="LottoQuickPick.jpeg"   class="d-block w-100 carousel-image " width="500" height="500"  alt="Platzhalterbild 1">
+    </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette" id="overview4">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1">Or Prefer . <span class="text-body-secondary">Flip Coin.</span></h2>
+      <p class="lead">This also allows the users to make a personal selection by entering either 1 for heads or 2 for tails. The result is then displayed. Coin flipping is often used for simple decisions where there are only two options. Examples include deciding who starts, which team plays first, or simple yes-no decisions.
+        </div>
+      <div class="col-md-5">
+        <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="var(--bs-secondary-bg)"/><text x="50%" y="50%" fill="var(--bs-secondary-color)" dy=".3em">500x500</text></svg> -->
+        <img src="flipcoin.jpeg"   class="d-block w-100 carousel-image " width="500" height="500"  alt="Platzhalterbild 1">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+    <!-- Jeu de Random.org -->
+
+<!-- Service-Auswahl Abschnitt -->
+<div class="mb-3" id="overview5">
+  <label for="selectService" class="form-label">Select a Service:</label>
+  <select id="selectService" class="form-select" >
+      <option value="guessNumber">Submit Guess</option>
+      <option value="lottoQuickPick">Lotto Quick Pick</option>
+      <option value="flipCoin">Coin Flip</option>
+      <option value="kenoQuickPick">Keno Quick Pick</option>
+      <option value="cardShuffler">Playing Card Shuffler</option>
+      <option value="diceRoller">Dice Roller</option>
+      <option value="birdieFundGenerator">Birdie Fund Generator</option>
+  </select>
+</div>
+
+
+<!-- Submit Guess Section  gut  -->
+<div class="mb-3" id="guessNumberSection">
+  <h2 class="featurette-heading fw-normal lh-1">Submit Guess</h2>
+  <label for="userGuess" class="form-label">Your Guess (1-100):</label>
+  <input type="number" id="userGuess" class="form-control" min="1" max="100" />
+  <button onclick="submitGuess()" class="btn btn-primary mt-2">Submit Guess</button>
+  <div id="result" class="mt-3"></div>
+</div>
+
+<!-- Lotto Quick Pick Section  gut -->
+<div class="mb-3" id="lottoQuickPickSection">
+  <h2 class="featurette-heading fw-normal lh-1">Lotto Quick Pick</h2>
+  <label for="lottoUserGuess" class="form-label">Your Guess (1-49):</label>
+  <input type="text" id="lottoUserGuess" class="form-control" placeholder="Enter your numbers (e.g., 1, 5, 10, 25, 42, 49)">
+  <button onclick="playCustomLottoQuickPick()" class="btn btn-primary mt-2">Play Lotto Quick Pick with Guess</button>
+  <button onclick="playRandomLottoQuickPick()" class="btn btn-secondary mt-2">Play Lotto Quick Pick without Guess</button>
+  <div id="lottoQuickPickResult" class="mt-3"></div>
+</div>
+
+<!-- Coin Flipper Section gut -->
+<div class="mb-3" id="flipCoinSection">
+  <h2 class="featurette-heading fw-normal lh-1">Coin Flip</h2>
+  <label for="coinChoice" class="form-label">Choose 1 for Heads and 2 for Tails:</label>
+  <input type="number" id="coinChoice" class="form-control" min="1" max="2" />
+  <button onclick="flipCoin()" class="btn btn-info mt-2">Coin Flip</button>
+  <div id="coinFlipResult" class="mt-3"></div>
+</div>
+
+<!-- Preload images for heads and tails -->
+<img src="face.png" alt="Heads" id="headsImage" style="display: none;" />
+<img src="pile.png" alt="Tails" id="tailsImage" style="display: none;" />
+
+
+<!-- Keno Quick Pick Section gut  -->
+<div class="mb-3" id="kenoQuickPickSection">
+  <h2 class="featurette-heading fw-normal lh-1">Keno Quick Pick</h2>
+  <label for="kenoUserGuess" class="form-label">Number of Picks (1-10):</label>
+  <input type="number" id="kenoUserGuess" class="form-control" min="1" max="10" />
+  <button onclick="playKenoQuickPick()" class="btn btn-success mt-2">Play Keno Quick Pick</button>
+  <div id="kenoQuickPickResult" class="mt-3"></div>
+</div>
+
+<!-- Dice Roller Section -->
+<div class="mb-3" id="diceRollerSection">
+  <h2 class="featurette-heading fw-normal lh-1">Dice Roller</h2>
+  <label for="numberOfDice" class="form-label">Number of Dice:</label>
+  <input type="number" id="numberOfDice" class="form-control" min="1" />
+  <label for="diceSides" class="form-label">Number of Sides per Die:</label>
+  <input type="number" id="diceSides" class="form-control" min="2" />
+  <button onclick="rollDice()" class="btn btn-warning mt-2">Roll Dice</button>
+  <div id="diceRollerResult" class="mt-3"></div>
+</div>
+
+<!-- Preload images for dice faces -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-01_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-02_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-03_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-04_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-05_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/09_of_hearts.svg/75px-09_of_hearts.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-07_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-08_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-09_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-10_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-11_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-12_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-13_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-14_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-15_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-16_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-17_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+
+<!-- Add more images for other dice faces as needed -->
+
+<!-- Playing Card Shuffler Section -->
+<div class="mb-3" id="cardShufflerSection">
+  <h2 class="featurette-heading fw-normal lh-1">Playing Card Shuffler</h2>
+  <button onclick="shuffleCards()" class="btn btn-success mt-2">Shuffle Cards</button>
+  <div id="cardShufflerResult" class="mt-3"></div>
+</div>
+
+<!-- Preload images for playing cards -->
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-01_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-02_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-03_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-04_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-05_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/09_of_hearts.svg/75px-09_of_hearts.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-07_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-08_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-09_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-10_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-11_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-12_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-13_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-14_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-15_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-16_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-17_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-18_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-19_of_spades_A.svg.png" alt="1" id="diceImage1" style="display: none;" />
+
+<!-- Add more images for other cards as needed -->
+
+
+<!-- Birdie Fund Generator Section -->
+<div class="mb-3" id="birdieFundGeneratorSection">
+  <h2 class="featurette-heading fw-normal lh-1">Birdie Fund Generator</h2>
+  <label for="birdieCount" class="form-label">Number of Birdies :</label>
+  <input type="number" id="birdieCount" class="form-control" min="1" />
+  <label for="fundPerBirdie" class="form-label">Fund per Birdie ($):</label>
+  <input type="number" id="fundPerBirdie" class="form-control" min="0" step="0.01" />
+  <button onclick="generateBirdieFund()" class="btn btn-primary mt-2">Generate Birdie Fund</button>
+  <div id="birdieFundResult" class="mt-3"></div>
+</div>
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+
+
+  <!-- FOOTER -->
+  <div class="container">
+    <footer class="py-5">
+      <div class="row">
+        <div class="col-6 col-md-2 mb-3">
+          <h5>Section</h5>
+          <ul class="nav flex-column">
+            <li class="nav-item mb-2"><a href="#overview" class="nav-link p-0 text-body-secondary">Home</a></li>
+            <li class="nav-item mb-2"><a href="#overview2" class="nav-link p-0 text-body-secondary">Features</a></li>
+           
+          </ul>
+        </div>
+  
+       
+        
+        <div class="col-md-5 offset-md-1 mb-3">
+          <form>
+            <h5>Subscribe to our newsletter</h5>
+            <p>Monthly digest of what's new and exciting from us.</p>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+              <label for="newsletter1" class="visually-hidden">Email address</label>
+              <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
+              <button class="btn btn-primary" type="button">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+  
+      <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+       
+        <ul class="list-unstyled d-flex">
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter"/></svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"/></svg></a></li>
+          <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"/></svg></a></li>
+        </ul>
+      </div>
+
+    
+    
+  <div class="container" id="modal">
+    <!-- Cookie-Banner -->
+
+    <!-- Buttons to open modals -->
+    <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#privacyModal">
+        Privacy Policy
+    </button>
+    <button type="button" class="btn btn-primary mt-3" data-toggle="modal" data-target="#imprintModal">
+          Imprint
+    </button>
+</div>
+
+<!-- Modal for Privacy Policy -->
+<div class="modal fade" id="privacyModal" tabindex="-1" role="dialog" aria-labelledby="privacyModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="privacyModalLabel">Privacy Policy</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add your Privacy Policy content here -->
+
+                <h1 class="mt-5">Privacy Policy</h1>
+
+                <p class="mt-3">Our website offers services from the `random.org` API. No personal data is collected or stored from users.</p>
+            
+                <!-- If applicable -->
+                <!-- <p>Cookie Consent Banner: [Description of the cookie consent banner]</p> -->
+            
+                <p>No personally identifiable information such as names, addresses, or email addresses is collected through the use of our services.</p>
+            
+                <p>Since no personal data is stored, there is no need for security measures or a special data protection officer.</p>
+            
+                <p>If you have any questions regarding privacy, you can contact us at <a href="mailto:your@email.com">randomAPI@Sidegmail.com</a>.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal for Imprint -->
+<div class="modal fade" id="imprintModal" tabindex="-1" role="dialog" aria-labelledby="imprintModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imprintModalLabel">Imprint</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Add your Imprint content here -->
+                <h2 class="text-center">Imprint</h2>
+                <p><strong>Information according to § 5 TMG</strong></p>
+                <p>aug<br>
+                    Gießen</p>
+              
+                <p><strong>Represented by:</strong><br>
+                    Executive Board: None</p>
+              
+                <p><strong>Contact</strong><br>
+                    E-mail: random.app@gmail.com<br>
+                    Phone: 01771537507</p>
+              
+                <p><strong>Register entry</strong><br>
+                    Cooperative register: None<br>
+                    Register court: Not yet assigned</p>
+              
+                <p><strong>Copyright notice</strong><br>
+                    The texts, images, photos, videos, or graphics present on our website are generally
+                    protected by copyright. Any unauthorized use (especially reproduction, editing, or distribution)
+                    of these copyrighted contents is therefore prohibited. If you intend to use these
+                    contents or parts thereof, please contact us in advance using the
+                    above-mentioned information. If we are not the owners of the necessary
+                    copyright usage rights ourselves, we will make an effort to connect you with the
+                    rightful owner.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    </footer>
+  </div>
+</main>
+
+
+<script src="assets/dist/js/bootstrap.bundle.min.js">
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script>
+function submitGuess() {
+            const userGuess = document.getElementById('userGuess').value;
+            getRandomNumber(userGuess);
+        }
+
+        function getRandomNumber(userGuess) {
+            const apiKey = '3ae6e0db-78d8-413e-9c8d-60aacee5c369';
+            let xhr = new XMLHttpRequest();
+            const apiUrl = `https://api.random.org/json-rpc/2/invoke`;
+            xhr.open('POST', apiUrl, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    let responseData = JSON.parse(this.response);
+                    const randomNumber = responseData.result.random.data[0];
+                    displayResult(userGuess, randomNumber);
+                } else {
+                    console.error('Error:', xhr.statusText);
+                }
+            };
+
+            const requestBody = {
+                "jsonrpc": "2.0",
+                "method": "generateIntegers",
+                "params": {
+                    "apiKey": apiKey,
+                    "n": 1,
+                    "min": 1,
+                    "max": 100,
+                    "replacement": true
+                },
+                "id": 42
+            };
+
+            xhr.send(JSON.stringify(requestBody));
+        }
+
+        function displayResult(userGuess, randomNumber) {
+            const resultContainer = document.getElementById('result');
+            const resultText = userGuess == randomNumber
+                ? 'Herzlichen Glückwunsch! Ihr Tipp ist richtig!'
+                : `Leider falsch. Die richtige Zahl war ${randomNumber}.`;
+
+            resultContainer.innerHTML = resultText;
+        }
+
+        function playCustomLottoQuickPick() {
+            const lottoUserGuess = document.getElementById('lottoUserGuess').value;
+            playLottoQuickPick(lottoUserGuess);
+        }
+
+        function playRandomLottoQuickPick() {
+            playLottoQuickPick();
+        }
+
+        function playLottoQuickPick(lottoUserGuess) {
+            const apiKey = '3ae6e0db-78d8-413e-9c8d-60aacee5c369';
+            let xhr = new XMLHttpRequest();
+            const apiUrl = `https://api.random.org/json-rpc/2/invoke`;
+            xhr.open('POST', apiUrl, true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    let responseData = JSON.parse(this.response);
+                    const lottoQuickPickNumbers = responseData.result.random.data;
+                    displayLottoQuickPickResult(lottoUserGuess, lottoQuickPickNumbers);
+                } else {
+                    console.error('Error:', xhr.statusText);
+                }
+            };
+
+            const requestBody = {
+                "jsonrpc": "2.0",
+                "method": "generateIntegers",
+                "params": {
+                    "apiKey": apiKey,
+                    "n": 6,
+                    "min": 1,
+                    "max": 49,
+                    "replacement": false
+                },
+                "id": 42
+            };
+
+            xhr.send(JSON.stringify(requestBody));
+        }
+
+       function displayLottoQuickPickResult(lottoUserGuess, lottoQuickPickNumbers) {
+    const lottoQuickPickResultContainer = document.getElementById('lottoQuickPickResult');
+    const lottoUserGuessText = lottoUserGuess ? `Dein Tipp: ${lottoUserGuess}` : "Du hast keinen Tipp abgegeben.";
+
+    const matchedNumbers = lottoUserGuess
+        ? lottoQuickPickNumbers.filter(number => lottoUserGuess.split(',').includes(number.toString()))
+        : [];
+
+    let resultMessage = `${lottoUserGuessText}<br>Lotto Quick Pick: ${lottoQuickPickNumbers.join(', ')}`;
+
+    if (lottoUserGuess) {
+        if (matchedNumbers.length === 6) {
+            resultMessage += "<br>Herzlichen Glückwunsch! Du hast alle Zahlen korrekt geraten. Du hast den Jackpot gewonnen!";
+        } else if (matchedNumbers.length > 0) {
+            resultMessage += `<br>Gewonnene Zahlen: ${matchedNumbers.join(', ')}. Herzlichen Glückwunsch!`;
+        } else {
+            resultMessage += "<br>Leider keine Übereinstimmungen. Versuche es erneut!";
+        }
+    }
+
+    lottoQuickPickResultContainer.innerHTML = resultMessage;
+}
+
+// Funktion für Keno Quick Pick
+function playKenoQuickPick() {
+  const apiKey = '3ae6e0db-78d8-413e-9c8d-60aacee5c369';
+  let xhr = new XMLHttpRequest();
+  const apiUrl = `https://api.random.org/json-rpc/2/invoke`;
+  xhr.open('POST', apiUrl, true);
+  xhr.setRequestHeader('Content-Type', 'application/json');
+
+  xhr.onload = function () {
+    if (xhr.status == 200) {
+      let responseData = JSON.parse(this.response);
+      const kenoPicks = responseData.result.random.data;
+      displayKenoQuickPickResult(kenoPicks);
+    } else {
+      console.error('Error:', xhr.statusText);
+    }
+  };
+
+  const numPicks = document.getElementById('kenoUserGuess').value || 1; // Default to 1 if no value entered
+
+  const requestBody = {
+    "jsonrpc": "2.0",
+    "method": "generateIntegers",
+    "params": {
+      "apiKey": apiKey,
+      "n": numPicks,
+      "min": 1,
+      "max": 80,
+      "replacement": false
+    },
+    "id": 42
+  };
+
+  xhr.send(JSON.stringify(requestBody));
+}
+
+// Funktion zur Anzeige des Keno Quick Pick Ergebnisses
+function displayKenoQuickPickResult(picks) {
+  const kenoQuickPickResultContainer = document.getElementById('kenoQuickPickResult');
+  kenoQuickPickResultContainer.innerHTML = `Keno Quick Pick Ergebnis: ${picks.join(', ')}`;
+}
+        // Aktualisiere die Benutzeroberfläche beim Laden der Seite
+        <!-- Funktion für Birdie Fund Generator -->
+function generateBirdieFund() {
+  const birdieCount = document.getElementById('birdieCount').value || 1; // Default to 1 if no value entered
+  const fundPerBirdie = document.getElementById('fundPerBirdie').value || 0; // Default to 0 if no value entered
+
+  const totalFund = birdieCount * fundPerBirdie;
+
+  displayBirdieFundResult(totalFund);
+}
+
+
+function displayBirdieFundResult(totalFund) {
+  const birdieFundResultContainer = document.getElementById('birdieFundResult');
+  birdieFundResultContainer.innerHTML = `Total Birdie Fund: $${totalFund.toFixed(2)}`;
+}
+
+// Für die Karten 
+// Funktion für Playing Card Shuffler
+function shuffleCards() {
+    // Define a standard deck of playing cards
+    const cardImages = [
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/01_of_spades_A.svg/75px-01_of_spades_A.svg.png',
+     // 'karte2.png',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/06_of_hearts.svg/75px-06_of_hearts.svg.png',
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/03_of_spades.svg/75px-03_of_spades.svg.png',
+   
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/04_of_spades.svg/75px-04_of_spades.svg.png',
+   
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/02_of_spades.svg/75px-05_of_spades.svg.png',
+   
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/09_of_hearts.svg/75px-09_of_hearts.svg.png',
+   
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/08_of_spades.svg/75px-08_of_spades.svg.png',
+   
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/10_of_diamonds_-_David_Bellot.svg/75px-10_of_diamonds_-_David_Bellot.svg.png',
+   
+      'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/09_of_spades.svg/75px-09_of_spades.svg.png',
+   
+
+   
+
+   
+   
+    ];
+
+    // Shuffle the deck
+    for (let i = cardImages.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [cardImages[i], cardImages[j]] = [cardImages[j], cardImages[i]];
+    }
+
+    displayCardShufflerResult(cardImages);
+  }
+
+  // Funktion zur Anzeige des Playing Card Shuffler Ergebnisses
+  function displayCardShufflerResult(cardImages) {
+    const cardShufflerResultContainer = document.getElementById('cardShufflerResult');
+    cardShufflerResultContainer.innerHTML = '';
+
+    // Display card images
+    const imageContainer = document.createElement('div');
+    imageContainer.classList.add('mt-2');
+
+    let winCondition = false;
+
+    cardImages.forEach((cardImage, index) => {
+      const image = document.createElement('img');
+      image.alt = cardImage;
+      image.style.width = '100px'; // Set the width as needed
+
+      // Set the image source based on the card
+      image.src = cardImage;
+
+      imageContainer.appendChild(image);
+
+      // Determine win condition (customize this logic based on your requirements)
+      if (index === 0 && cardImage === 'karte1.png') {
+        winCondition = true;
+      }
+    });
+
+    cardShufflerResultContainer.appendChild(imageContainer);
+
+    // Display win/lose message
+    const winLoseMessage = document.createElement('p');
+    winLoseMessage.classList.add('mt-2');
+
+    if (winCondition) {
+      winLoseMessage.textContent = 'Glückwunsch! Du hast gewonnen!';
+    } else {
+      winLoseMessage.textContent = 'Leider verloren. Versuche es erneut!';
+    }
+
+    cardShufflerResultContainer.appendChild(winLoseMessage);
+  }
+
+// Funktion für Dice Roller
+function rollDice() {
+  const numberOfDice = document.getElementById('numberOfDice').value || 1; // Default to 1 if no value entered
+  const numberOfSides = document.getElementById('diceSides').value || 6; // Default to 6 sides if no value entered
+
+  let total = 0;
+  let rolls = [];
+
+  for (let i = 0; i < numberOfDice; i++) {
+    const roll = Math.floor(Math.random() * numberOfSides) + 1;
+    rolls.push(roll);
+    total += roll;
+  }
+
+  displayDiceRollResult(rolls, total);
+}
+
+    // Funktion zur Anzeige des Dice Roller Ergebnisses
+function displayDiceRollResult(rolls, total) {
+  const diceRollerResultContainer = document.getElementById('diceRollerResult');
+  diceRollerResultContainer.innerHTML = `Dice Roll Result: ${rolls.join(', ')} (Total: ${total})`;
+
+  // Determine win condition (customize this logic based on your requirements)
+  const winCondition = rolls.includes(6); // Example: Win if any die shows a 6
+
+  // Display result images
+  const imageContainer = document.createElement('div');
+  imageContainer.classList.add('mt-2');
+
+  rolls.forEach(roll => {
+    const image = document.createElement('img');
+    image.alt = roll;
+    image.style.width = '100px'; // Set the width as needed
+
+    // Set the image source based on the dice roll
+    switch (roll) {
+      case 1:
+        image.src = '1.png';
+        break;
+      case 2:
+        image.src = '2.png';
+        break;
+      case 3:
+        image.src = '3.png';
+      case 4:
+        image.src = '4.png';
+        break;
+      case 5:
+        image.src = '5.png';
+        break;
+      case 6:
+        image.src = '6.png';
+        break;
+      // Add more cases for other dice faces as needed
+      default:
+        // Set a default image for unknown roll values
+        image.src = 'bild2.jpeg';
+        break;
+    }
+
+    imageContainer.appendChild(image);
+  });
+
+  diceRollerResultContainer.appendChild(imageContainer);
+
+  // Display win/lose message
+  const winLoseMessage = document.createElement('p');
+  winLoseMessage.classList.add('mt-2');
+
+  if (winCondition) {
+    winLoseMessage.textContent = 'Glückwunsch! Du hast gewonnen!';
+  } else {
+    winLoseMessage.textContent = 'Leider verloren. Versuche es erneut!';
+  }
+
+  diceRollerResultContainer.appendChild(winLoseMessage);
+}
+
+
+        // Funktion für Coin Flipper
+    function flipCoin() {
+        const apiKey = '3ae6e0db-78d8-413e-9c8d-60aacee5c369';
+        let xhr = new XMLHttpRequest();
+        const apiUrl = `https://api.random.org/json-rpc/2/invoke`;
+        xhr.open('POST', apiUrl, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                let responseData = JSON.parse(this.response);
+                const coinResult = responseData.result.random.data[0] === 0 ? 'Kopf' : 'Zahl';
+                displayCoinFlipResult(coinResult);
+            } else {
+                console.error('Error:', xhr.statusText);
+            }
+        };
+
+        const requestBody = {
+            "jsonrpc": "2.0",
+            "method": "generateIntegers",
+            "params": {
+                "apiKey": apiKey,
+                "n": 1,
+                "min": 0,
+                "max": 1,
+                "replacement": false
+            },
+            "id": 42
+        };
+
+        xhr.send(JSON.stringify(requestBody));
+    }
+
+   
+// ...
+
+// Funktion zur Anzeige des Coin Flipper Ergebnisses
+function displayCoinFlipResult(result) {
+    const coinFlipResultContainer = document.getElementById('coinFlipResult');
+    
+    // Display result text
+    coinFlipResultContainer.innerHTML = `Münzwurf Ergebnis: ${result}`;
+
+    // Display result image
+    const imageContainer = document.createElement('div');
+    imageContainer.classList.add('mt-2');
+
+    const image = document.createElement('img');
+    image.alt = result;
+    image.style.width = '100px'; // Set the width as needed
+
+    if (result === 'Kopf') {
+        image.src = 'face.png';
+    } else {
+        image.src = 'pile.png';
+    }
+
+    imageContainer.appendChild(image);
+    coinFlipResultContainer.appendChild(imageContainer);
+
+    // Check for win condition (you can customize this logic)
+    const userChoice = parseInt(document.getElementById('coinChoice').value);
+    const winCondition = (result === 'Kopf' && userChoice === 1) || (result === 'Zahl' && userChoice === 2);
+
+    // Display win/lose message
+    const winLoseMessage = document.createElement('p');
+    winLoseMessage.classList.add('mt-2');
+
+    if (winCondition) {
+        winLoseMessage.textContent = 'Glückwunsch! Du hast gewonnen!';
+    } else {
+        winLoseMessage.textContent = 'Leider verloren. Versuche es erneut!';
+    }
+
+    coinFlipResultContainer.appendChild(winLoseMessage);
+}
+
+      // Funktion zur Aktualisierung der Benutzeroberfläche basierend auf der ausgewählten Option
+    function updateUI() {
+        const selectedService = document.getElementById('selectService').value;
+
+        // Verstecke alle Abschnitte zuerst
+        document.getElementById('guessNumberSection').style.display = 'none';
+        document.getElementById('lottoQuickPickSection').style.display = 'none';
+        document.getElementById('flipCoinSection').style.display = 'none';
+        document.getElementById('kenoQuickPickSection').style.display = 'none';
+        document.getElementById('diceRollerSection').style.display = 'none';
+        document.getElementById('cardShufflerSection').style.display = 'none';
+        document.getElementById('birdieFundGeneratorSection').style.display = 'none';
+
+        // Zeige den ausgewählten Abschnitt
+        document.getElementById(`${selectedService}Section`).style.display = 'block';
+    }
+
+    // Funktion zum Ausführen, wenn sich die ausgewählte Option ändert
+    document.getElementById('selectService').addEventListener('change', updateUI);
+
+    // ... (vorheriger Code bleibt unverändert)
+
+    
+
+    // Aktualisiere die Benutzeroberfläche beim Laden der Seite
+    updateUI();
+
+
+    function acceptCookies() {
+            // Setze Cookie und schließe den Banner
+            document.cookie = "cookieConsent=accepted; expires=" + new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toUTCString();
+            document.getElementById("cookieBanner").style.display = "none";
+            // Erlaube wieder das Scrollen
+            document.body.style.overflow = "auto";
+        }
+
+        window.onload = function () {
+            // Überprüfe, ob die Zustimmung bereits erteilt wurde
+            if (document.cookie.indexOf("cookieConsent=accepted") === -1) {
+                document.getElementById("cookieBanner").style.display = "flex";
+                // Verhindere das Scrollen hinter dem Banner
+                document.body.style.overflow = "hidden";
+            }
+        };
+
+
+
+        
+</script>
+
+    </body>
+</html>
